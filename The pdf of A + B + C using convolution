@@ -1,3 +1,17 @@
+//PDf of three continuous exponential distributions A+B+C
+x=[0:0.1:10]';
+a = exppdf(x,2);
+b = exppdf(x,4);
+c = exppdf(x,5);
+
+ab= conv(a,b);
+abc= conv(ab,c);
+
+xx= linspace(0,30,301);
+plot(xx,abc);
+title('PDF y=a+b+c');
+
+//the pdf of three continuous exponential distributions A+B+C using moment LaPlace transforms
 syms s,t;
 a = exp(-t/2)/2;
 b = exp(-t/4)/4;

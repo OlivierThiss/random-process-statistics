@@ -1,0 +1,16 @@
+syms s,t;
+a = exp(-t/2)/2;
+b = exp(-t/4)/4;
+c = exp(-t/5)/5;
+
+am= laplace(a,s);
+bm= laplace(b,s);
+cm= laplace(c,s);
+
+abcm = am*bm*cm;
+
+abc = ilaplace(abcm,s);
+abcf = matlabFunction(abc);
+
+xx=[0:0.1:101]';
+plot(xx,abcf(xx));
